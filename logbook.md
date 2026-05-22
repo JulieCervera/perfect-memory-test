@@ -13,8 +13,11 @@
 
 
 ## Steps
+### 0 - setup
+- create new project using angular cli
+- use of angular schematics for all project generation
 
-### 1 Recipes list
+### 1 - Recipes list
 - add service to fetch recipes and view type
 - create model accordingly
 - add component to display recipes
@@ -22,11 +25,16 @@
 - add tailwind to for faster design implementation
 - start with basic layout and styling
 
-### 2 Recipe details
+### 2 - Recipe details
 - add service to fetch recipe details view type
 - create model accordingly
 - add component to display recipe details and route
+- use signal for error display
 - refactor service to format ingredients
 - browse canva.com for inspiration and design ideas
 - light styling
 - add all required information
+
+### 3 - Recipe Filters
+- add search bar component 
+- is signal a better way to implement user search input ? (to discuss)

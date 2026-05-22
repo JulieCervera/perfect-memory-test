@@ -3,11 +3,11 @@ import { RecipeService } from '../core/services/recipe.service';
 import { Observable } from 'rxjs';
 import { Meal } from '../core/models/meal.model';
 import { Router } from '@angular/router';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
-  imports: [AsyncPipe, JsonPipe],
+  imports: [AsyncPipe],
   templateUrl: './detail.html',
   styleUrl: './detail.css',
 })

@@ -12,9 +12,16 @@ export class RecipeService {
 
   constructor() {}
 
+  // TODO remove duplicate method
   getRecipes(): Observable<Meal[]> {
     return this.httpClient
       .get<MealResponse>('https://www.themealdb.com/api/json/v1/1/search.php?f=b')
+      .pipe(map((res) => this.formatMealResponse(res)));
+  }
+
+  searchRecipes(input: string): Observable<Meal[]> {
+    return this.httpClient
+      .get<MealResponse>(`https://www.themealdb.com/api/json/v1/1/search.php?f=${input}`)
       .pipe(map((res) => this.formatMealResponse(res)));
   }
 
