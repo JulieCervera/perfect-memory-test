@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 // TODO: add custom paths for imports
-import { Meal, MealResponse } from '../models/meal.model';
+import { Ingredient, Meal, MealResponse } from '../models/meal.model';
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +31,8 @@ export class RecipeService {
     }));
   }
 
-  // TODO: better typage
-  private formatIngredients(recipe: any): any {
+  // TODO: real type for recipe
+  private formatIngredients(recipe: any): Ingredient[] {
     const ingredientsList = Object.keys(recipe).filter((key) => key.startsWith('strIngredient'));
     return ingredientsList
       .map((key) => ({
