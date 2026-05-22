@@ -29,3 +29,4 @@
 - refactor service to format ingredients
 - browse canva.com for inspiration and design ideas
 - light styling
+- add all required information
