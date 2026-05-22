@@ -1,8 +1,31 @@
-## Logbook
+# Logbook
 
-# Structure
+## Structure
 - core: services, models, guards,...
 - feature: folders structure organized by page
 
-# Design
+## Design
 - use of tailwindcss only for utility classes to produce responsive design faster
+- browse canva.com for inspiration and design ideas
+
+## Improvement
+- divide app.routes in subfolders for better organization
+
+
+## Steps
+
+### 1 Recipes list
+- add service to fetch recipes and view type
+- create model accordingly
+- add component to display recipes
+- create service to count ingredients
+- add tailwind to for faster design implementation
+- start with basic layout and styling
+
+### 2 Recipe details
+- add service to fetch recipe details view type
+- create model accordingly
+- add component to display recipe details and route
+- refactor service to format ingredients
+- browse canva.com for inspiration and design ideas
+- light styling

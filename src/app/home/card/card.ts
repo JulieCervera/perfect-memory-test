@@ -10,8 +10,4 @@ import { RouterLink } from '@angular/router';
 })
 export class Card {
   @Input() recipe!: Meal;
-
-  protected goToDetails() {
-  //   TODO implements method
-  }
 }

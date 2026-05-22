@@ -3,7 +3,6 @@
   <div class="p-4">
     <h3>{{ recipe.strMeal }}</h3>
     <p>{{ recipe.strCategory }}</p>
-    <small>{{ recipe.ingredientsCount }} ingredients</small>
+    <small>{{ recipe.ingredients.length }} ingredients</small>
   </div>
-  <button (click)="goToDetails()" >View Recipe</button>
-</div>
+  <a [routerLink]="['/recipe', recipe.idMeal]" class="btn">View Recipe</a></div>

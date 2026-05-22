@@ -1,0 +1,27 @@
+<!-- TODO display in overlay dialog with animation -->
+@if (recipe$ | async; as recipe)  {
+  <div class="p-8 details-container">
+<!-- TODO add back button   -->
+    <h1 class="text-center md:text-left">{{recipe.strMeal}}</h1>
+<!-- TODO add favorite and to do icon buttons opposite to title   -->
+    <div class="flex gap-4 md:flex-row flex-col">
+      <img src="{{recipe.strMealThumb}}" alt="{{recipe.strMeal}}">
+      <div class="ingredients-card">
+        <h2>Ingredients</h2>
+        <ul>
+          @for (ingredient of recipe.ingredients; track ingredient.value) {
+            <li>{{ingredient.value}} - {{ingredient.measure}}</li>
+          }
+        </ul>
+      </div>
+      <p>{{recipe.strInstructions}}</p>
+
+    </div>
+  </div>
+} @else {
+  @if (error()) {
+    <p>{{error()}}</p>
+  } @else {
+    Loading...
+  }
+}
