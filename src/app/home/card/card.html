@@ -1,0 +1,9 @@
+<div class="recipe-card flex flex-col">
+  <img src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}">
+  <div class="p-4">
+    <h3>{{ recipe.strMeal }}</h3>
+    <p>{{ recipe.strCategory }}</p>
+    <small>{{ recipe.ingredientsCount }} ingredients</small>
+  </div>
+  <button (click)="goToDetails()" >View Recipe</button>
+</div>

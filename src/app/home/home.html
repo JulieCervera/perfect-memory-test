@@ -2,10 +2,14 @@
 <h2>Find your next meal</h2>
 
 @if (recipes$ | async; as recipes) {
-  @for (recipe of recipes; track recipe.idMeal) {
-    <div>{{ recipe.strMeal }}</div>
-  }
+  <div class="flex gap-4 flex-wrap">
+    @for (recipe of recipes; track recipe.idMeal) {
+      <app-card [recipe]="recipe"></app-card>
+    }
+  </div>
+
 } @else {
   <div>Loading...</div>
+<!--  TODO: implement error indicator here-->
 }
 

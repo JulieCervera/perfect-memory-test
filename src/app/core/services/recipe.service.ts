@@ -15,6 +15,19 @@ export class RecipeService {
   getRecipes(): Observable<Meal[]> {
     return this.httpClient
       .get<MealResponse>('https://www.themealdb.com/api/json/v1/1/search.php?f=b')
-      .pipe(map((res) => res.meals));
+      .pipe(
+        map((res) => this.formatMealResponse(res))
+      );
+  }
+
+  private formatMealResponse(mealResponse: MealResponse): Meal[] {
+    return mealResponse.meals.map((meal) => ({
+      ...meal,
+      ingredientsCount: this.countIngredients(meal),
+    }));
+  }
+
+  private countIngredients(recipe: Meal): number {
+    return Object.keys(recipe).filter((key) => key.startsWith('strIngredient')).length;
   }
 }

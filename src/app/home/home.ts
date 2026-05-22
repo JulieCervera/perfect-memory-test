@@ -3,10 +3,11 @@ import { AsyncPipe } from '@angular/common';
 import { RecipeService } from '../core/services/recipe.service';
 import { Observable } from 'rxjs';
 import { Meal } from '../core/models/meal.model';
+import { Card } from './card/card';
 
 @Component({
   selector: 'app-home',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, Card],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

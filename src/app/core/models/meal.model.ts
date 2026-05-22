@@ -13,6 +13,7 @@ export interface Meal {
   strMealThumb: string;
   strTags: string | null;
   strYoutube: string;
+  ingredientsCount: number;
   strIngredient1: string;
   strIngredient2: string;
   strIngredient3: string;
@@ -57,5 +58,4 @@ export interface Meal {
   strImageSource: string | null;
   strCreativeCommonsConfirmed: string | null;
   dateModified: string;
-  ingredientNumber: number;
 }

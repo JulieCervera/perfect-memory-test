@@ -1,0 +1,12 @@
+.recipe-card {
+  padding: 1rem;
+  max-width: 20rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
