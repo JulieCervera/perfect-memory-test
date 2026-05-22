@@ -1,0 +1,11 @@
+<h1>Miam Miam</h1>
+<h2>Find your next meal</h2>
+
+@if (recipes$ | async; as recipes) {
+  @for (recipe of recipes; track recipe.idMeal) {
+    <div>{{ recipe.strMeal }}</div>
+  }
+} @else {
+  <div>Loading...</div>
+}
+
