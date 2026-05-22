@@ -1,8 +1,9 @@
 <h1 class="text-3xl text-green-900">Miam Miam</h1>
 <h2>Find your next meal</h2>
 
+<app-search (searchEvent)="search($event)"></app-search>
 @if (recipes$ | async; as recipes) {
-  <div class="flex gap-4 flex-wrap">
+  <div class="flex gap-4 flex-wrap justify-center">
     @for (recipe of recipes; track recipe.idMeal) {
       <app-card [recipe]="recipe"></app-card>
     }

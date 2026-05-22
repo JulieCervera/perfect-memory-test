@@ -4,10 +4,11 @@ import { RecipeService } from '../core/services/recipe.service';
 import { Observable } from 'rxjs';
 import { Meal } from '../core/models/meal.model';
 import { Card } from './card/card';
+import { Search } from './search/search';
 
 @Component({
   selector: 'app-home',
-  imports: [AsyncPipe, Card],
+  imports: [AsyncPipe, Card, Search],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -17,5 +18,10 @@ export class Home implements OnInit {
 
   ngOnInit(): void {
     this.recipes$ = this.recipeService.getRecipes();
+  }
+
+  protected search(searchTerm: string | null) {
+    // TODO add debounce
+    this.recipeService.searchRecipes(searchTerm ?? '').subscribe();
   }
 }
