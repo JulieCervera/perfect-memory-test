@@ -15,19 +15,30 @@ export class RecipeService {
   getRecipes(): Observable<Meal[]> {
     return this.httpClient
       .get<MealResponse>('https://www.themealdb.com/api/json/v1/1/search.php?f=b')
-      .pipe(
-        map((res) => this.formatMealResponse(res))
-      );
+      .pipe(map((res) => this.formatMealResponse(res)));
+  }
+
+  getRecipeById(id: string): Observable<Meal> {
+    return this.httpClient
+      .get<MealResponse>(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+      .pipe(map((res) => this.formatMealResponse(res)[0]));
   }
 
   private formatMealResponse(mealResponse: MealResponse): Meal[] {
     return mealResponse.meals.map((meal) => ({
       ...meal,
-      ingredientsCount: this.countIngredients(meal),
+      ingredients: this.formatIngredients(meal),
     }));
   }
 
-  private countIngredients(recipe: Meal): number {
-    return Object.keys(recipe).filter((key) => key.startsWith('strIngredient')).length;
+  // TODO: better typage
+  private formatIngredients(recipe: any): any {
+    const ingredientsList = Object.keys(recipe).filter((key) => key.startsWith('strIngredient'));
+    return ingredientsList
+      .map((key) => ({
+        value: recipe[key],
+        measure: recipe[`strMeasure${key.split('strIngredient')[1]}`],
+      }))
+      .filter((item) => item.value);
   }
 }

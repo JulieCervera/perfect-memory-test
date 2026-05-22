@@ -1,9 +1,7 @@
 export interface MealResponse {
-  meals: Meal[];
-}
-
-export interface Meal {
-  idMeal: string;
+  meals:
+    {
+      idMeal: string
   strMeal: string;
   strMealAlternate: string | null;
   strCategory: string;
@@ -57,5 +55,28 @@ export interface Meal {
   strSource: string;
   strImageSource: string | null;
   strCreativeCommonsConfirmed: string | null;
+  dateModified: string;}[]
+}
+
+export interface Meal {
+  idMeal: string;
+  strMeal: string;
+  strMealAlternate: string | null;
+  strCategory: string;
+  strArea: string;
+  strCountry: string;
+  strInstructions: string;
+  strMealThumb: string;
+  strTags: string | null;
+  strYoutube: string;
+  ingredients: Ingredient[];
+  strSource: string;
+  strImageSource: string | null;
+  strCreativeCommonsConfirmed: string | null;
   dateModified: string;
+}
+
+export interface Ingredient {
+  value: string;
+  measure: string;
 }
