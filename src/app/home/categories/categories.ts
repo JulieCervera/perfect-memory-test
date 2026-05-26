@@ -14,7 +14,7 @@ export class Categories {
   @Output() categoryEvent = new EventEmitter<string>();
   recipeService = inject(RecipeService);
   categories: Category[] = [];
-  protected selectedCategory: string | null = null;
+  selectedCategory: string | null = null;
 
   constructor() {
     this.recipeService

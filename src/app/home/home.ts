@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { RecipeService } from '../core/services/recipe.service';
 import { Observable } from 'rxjs';
@@ -14,6 +14,8 @@ import { Categories } from './categories/categories';
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
+  @ViewChild(Categories) categoriesComponent!: Categories;
+  @ViewChild(Search) searchComponent!: Search;
   private readonly recipeService = inject(RecipeService);
   protected recipes$?: Observable<Meal[]>;
 
@@ -22,10 +24,14 @@ export class Home implements OnInit {
   }
 
   protected search(searchTerm: string | null) {
+    // reset category selected on input search
+    this.categoriesComponent.selectedCategory = null;
     this.recipes$ = this.recipeService.searchRecipes(searchTerm ?? '');
   }
 
   protected searchByCategory(name: string) {
+    // reset search input on category filtering
+    this.searchComponent.inputSearch = '';
     this.recipes$ = this.recipeService.getRecipesByCategory(name);
   }
 }
