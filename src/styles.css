@@ -1,1 +1,30 @@
 @import 'tailwindcss';
+
+:root {
+  --border-radius: 0.5rem;
+  --background-color: #f6eacc;
+  --primary-color: #356022;
+  --text-color: rgba(73, 44, 32, 0.8);
+}
+
+
+body {
+  background-color: #f6eacc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #356022;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
