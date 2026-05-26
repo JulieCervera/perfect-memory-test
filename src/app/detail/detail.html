@@ -1,40 +1,55 @@
 <!-- TODO display in overlay dialog with animation -->
 @if (recipe$ | async; as recipe) {
-  <button class="back-btn" (click)="back()"><-</button>
-
   <div class="p-8 details-container">
-    <h1 class="text-center md:text-left">{{ recipe.strMeal }}</h1>
-    <div class="flex gap-2">
-<!--      TODO-->
-      <button class="add-btn" [ngClass]="{'selected': isFavorite()} "  (click)="addToFavorites()">{{ isFavorite() ? 'Favorite' : 'Add to favorite }}</button>
-      <button class="add-btn" [ngClass]="{'selected': isToDo()}" (click)="addToDo()">{{ isToDo() ? 'To do' : 'Add To Do' }}</button>
+    <div class="flex justify-between">
+      <button class="back-btn" (click)="back()">
+        <img src="/back.svg" alt="Back" />
+      </button>
+
+      <div class="flex items-center">
+        <!--      TODO add tooltip -->
+        <button class="add-btn" [ngClass]="{ selected: isFavorite() }" (click)="addToFavorites()">
+          <img src="/heart.svg" alt="Favorite" />
+        </button>
+
+        <!--      TODO add tooltip-->
+        <button class="add-btn" [ngClass]="{ selected: isToDo() }" (click)="addToDo()">
+          <img src="/plus.svg" alt="To do" />
+        </button>
+      </div>
     </div>
-    <div class="flex justify-center md:justify-start">
-      <h2 class="details-chips">{{ recipe.strCategory }}</h2>
-      <!-- TODO add icon for location -->
-      <p class="details-chips">{{ recipe.strArea }}</p>
-      <!-- Remove location duplicate     -->
-      @if (recipe.strCountry !== recipe.strArea) {
-        <p class="details-chips">{{ recipe.strCountry }}</p>
-      }
-    </div>
+      <h1 class="text-center block">{{ recipe.strMeal }}</h1>
+
+      <h3 class="italic">{{ recipe.strCategory }}</h3>
+
     <div class="flex gap-4 md:flex-row flex-col">
       <img src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}" />
-      <div class="ingredients-card">
-        <h3>Ingredients</h3>
-        <ul>
+      <!-- TODO add icon for location -->
+      <div class="flex items-center justify-end">
+
+
+      <p>{{ recipe.strArea }} </p>
+
+      <!-- Remove location duplicate     -->
+      @if (recipe.strCountry !== recipe.strArea) {
+        <p> ({{ recipe.strCountry }})</p>
+      }
+      </div>
+        <h2>Ingredients</h2>
+        <ul class="ingredients-list">
           @for (ingredient of recipe.ingredients; track ingredient.value) {
             <li>{{ ingredient.measure }} - {{ ingredient.value }}</li>
           }
         </ul>
-      </div>
-      <p>{{ recipe.strInstructions }}</p>
+      <p class="whitespace-pre-line">{{ recipe.strInstructions }}</p>
     </div>
-    <div class="flex gap-4">
-      <a href="{{ recipe.strYoutube }}" target="_blank" class="btn">Watch Video</a>
-      <a href="{{ recipe.strSource }}" target="_blank" class="btn">View Source</a>
+    <div class="flex gap-4 flex-col md:flex-row my-4">
+      <a href="{{ recipe.strYoutube }}" target="_blank" class="action-btn">Watch Video</a>
+      <a href="{{ recipe.strSource }}" target="_blank" class="action-btn">View Source</a>
     </div>
-    <h4>Tags: {{ recipe.strTags }}</h4>
+    @if(recipe.strTags && recipe.strTags.length > 0) {
+      <h4>Tags: {{ recipe.strTags }}</h4>
+    }
   </div>
 } @else {
   @if (error()) {

@@ -2,36 +2,44 @@
   padding: 2rem;
 
   img {
-    width: 100%;
-    height: auto;
     border-radius: 8px;
   }
 }
+.back-btn {
+  border-radius: 20px;
+  opacity: 0.8;
+  color: var(--primary-color);
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+}
 
 .add-btn {
-  border-radius: 20px;
-  padding: 0.5rem 1rem;
   background-color: #356022;
   opacity: 0.8;
   color: #f6eacc;
-  border: 1px solid var(--border-color);
+  cursor: pointer;
+  width: 2rem;
+  height: auto;
 
   &.selected {
     background-color: #f6eacc;
     color: #356022;
   }
 }
-.details-ingredients-card {
+.ingredients-list {
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #f6eacc;
+  opacity: 0.5
 }
 
-.details-chips {
-  margin: 1rem 0;
-  border-radius: 20px;
+.action-btn {
+  border-radius: 10px;
   padding: 0.5rem 1rem;
   background-color: #356022;
-  color: #fff;
+  opacity: 0.8;
+  color: #f6eacc;
+  text-align: center;
 }
