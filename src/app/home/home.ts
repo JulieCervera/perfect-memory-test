@@ -24,14 +24,14 @@ export class Home implements OnInit {
   }
 
   protected search(searchTerm: string | null) {
-    // reset category selected on input search
+    // reset selected category on input search
     this.categoriesComponent.selectedCategory = null;
     this.recipes$ = this.recipeService.searchRecipes(searchTerm ?? '');
   }
 
   protected searchByCategory(categoryName: string | null ) {
     if (categoryName) {
-      // reset search input on category filtering
+      // reset input search on category filtering
       this.searchComponent.inputSearch = '';
       this.recipes$ = this.recipeService.getRecipesByCategory(categoryName);
     } else {

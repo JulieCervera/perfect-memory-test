@@ -1,3 +1,7 @@
-.hero {
+.home-container {
   padding: 2rem;
+}
+
+.hero {
+  padding: 1rem;
 }

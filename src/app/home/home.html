@@ -1,19 +1,27 @@
-<div class="hero flex flex-col items-center justify-center">
-  <h1>Miam Miam</h1>
-  <h2>Find your next meal</h2>
-</div>
-
-<app-categories (categoryEvent)="searchByCategory($event)"></app-categories>
-
-<app-search (searchEvent)="search($event)"></app-search>
-@if (recipes$ | async; as recipes) {
-  <div class="flex gap-4 flex-wrap justify-center">
-    @for (recipe of recipes; track recipe.idMeal) {
-      <app-card [recipe]="recipe"></app-card>
-    }
+<div class="home-container">
+  <div class="hero flex flex-col items-center justify-center">
+    <h1>Miam Miam</h1>
+    <h2>Find your next meal</h2>
   </div>
-} @else {
-  <div>Loading...</div>
-<!--  TODO: implement error indicator here-->
-}
 
+  <div class="flex flex-col md:flex-row items-baseline gap-4 justify-center">
+    <p>Search a recipe</p>
+    <app-search (searchEvent)="search($event)"></app-search>
+  </div>
+
+  <div class="flex flex-col items-baseline gap-4 justify-center">
+    <p>or browse categories</p>
+    <app-categories (categoryEvent)="searchByCategory($event)"></app-categories>
+  </div>
+
+  @if (recipes$ | async; as recipes) {
+    <div class="flex gap-4 flex-wrap justify-center">
+      @for (recipe of recipes; track recipe.idMeal) {
+        <app-card [recipe]="recipe"></app-card>
+      }
+    </div>
+  } @else {
+    <div>Loading...</div>
+    <!--  TODO: implement error indicator here-->
+  }
+</div>
