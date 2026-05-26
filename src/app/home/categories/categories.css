@@ -1,0 +1,13 @@
+.categories-container {
+  button {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background-color: #356022;
+    color: #f6eacc;
+
+    &.selected {
+      background-color: #f6eacc;
+      color: #356022;
+    }
+  }
+}

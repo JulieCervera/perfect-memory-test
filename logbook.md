@@ -11,6 +11,7 @@
 
 ## Improvement
 - divide app.routes in subfolders for better organization
+- add animation for smoother transition during list filter
 
 
 ## Steps

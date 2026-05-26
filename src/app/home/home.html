@@ -1,5 +1,9 @@
-<h1 class="text-3xl text-green-900">Miam Miam</h1>
-<h2>Find your next meal</h2>
+<div class="hero flex flex-col items-center justify-center">
+  <h1>Miam Miam</h1>
+  <h2>Find your next meal</h2>
+</div>
+
+<app-categories (categoryEvent)="searchByCategory($event)"></app-categories>
 
 <app-search (searchEvent)="search($event)"></app-search>
 @if (recipes$ | async; as recipes) {
@@ -8,7 +12,6 @@
       <app-card [recipe]="recipe"></app-card>
     }
   </div>
-
 } @else {
   <div>Loading...</div>
 <!--  TODO: implement error indicator here-->

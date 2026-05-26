@@ -5,10 +5,11 @@ import { Observable } from 'rxjs';
 import { Meal } from '../core/models/meal.model';
 import { Card } from './card/card';
 import { Search } from './search/search';
+import { Categories } from './categories/categories';
 
 @Component({
   selector: 'app-home',
-  imports: [AsyncPipe, Card, Search],
+  imports: [AsyncPipe, Card, Search, Categories],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -17,11 +18,14 @@ export class Home implements OnInit {
   protected recipes$?: Observable<Meal[]>;
 
   ngOnInit(): void {
-    this.recipes$ = this.recipeService.getRecipes();
+    this.recipes$ = this.recipeService.searchRecipes('');
   }
 
   protected search(searchTerm: string | null) {
-    // TODO add debounce
-    this.recipeService.searchRecipes(searchTerm ?? '').subscribe();
+    this.recipes$ = this.recipeService.searchRecipes(searchTerm ?? '');
+  }
+
+  protected searchByCategory(name: string) {
+    this.recipes$ = this.recipeService.getRecipesByCategory(name);
   }
 }

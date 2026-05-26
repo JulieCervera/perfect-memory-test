@@ -1,5 +1,5 @@
-<div class="categories-container">
+<div class="categories-container flex flex-wrap gap-1">
   @for (category of categories; track category) {
-    <button (click)="selectCategory(category.idCategory)">{{ category.strCategory | titlecase }}</button>
+    <button [ngClass]="{'selected': category.strCategory === selectedCategory}" (click)="selectCategory(category.strCategory)">{{ category.strCategory | titlecase }}</button>
   }
 </div>
