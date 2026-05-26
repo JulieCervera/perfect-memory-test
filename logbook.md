@@ -37,10 +37,21 @@
 - light styling
 - add all required information
 
-### 3 - Recipe Filters
+### 3 - Recipe filters
 - add search bar component 
 - is signal a better way to implement user search input ? (to discuss)
   (3 hours)
 - add svg icon from heroicons
 - add category services and category filter component
 - clear filter implementation 
+
+### 4 - Favorite and To Do buttons
+- add localStorage services
+- create favorite list and to do list subjects
+- add favorite button to details page
+- add to do button to details page
+- add favorite and to do logic
+
+### 5 - Design
+- style details page for mobile
+- style details page for desktop
