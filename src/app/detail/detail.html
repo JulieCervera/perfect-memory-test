@@ -2,6 +2,7 @@
 @if (recipe$ | async; as recipe) {
   <div class="p-8 details-container">
     <div class="flex justify-between">
+
       <button class="back-btn" (click)="back()">
         <img src="/back.svg" alt="Back" />
       </button>
@@ -23,25 +24,29 @@
       <h3 class="italic">{{ recipe.strCategory }}</h3>
 
     <div class="flex gap-4 md:flex-row flex-col">
-      <img src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}" />
-      <!-- TODO add icon for location -->
-      <div class="flex items-center justify-end">
+      <div class="flex flex-col">
+        <img class="recipe-img" src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}" />
+        <!-- TODO add icon for location -->
+        <div class="flex items-center justify-end">
+          <p>{{ recipe.strArea }} </p>
+          <!-- Remove location duplicate     -->
+          @if (recipe.strCountry !== recipe.strArea) {
+            <p> ({{ recipe.strCountry }})</p>
+          }
+        </div>
 
-
-      <p>{{ recipe.strArea }} </p>
-
-      <!-- Remove location duplicate     -->
-      @if (recipe.strCountry !== recipe.strArea) {
-        <p> ({{ recipe.strCountry }})</p>
-      }
       </div>
+
+      <div>
         <h2>Ingredients</h2>
         <ul class="ingredients-list">
           @for (ingredient of recipe.ingredients; track ingredient.value) {
-            <li>{{ ingredient.measure }} - {{ ingredient.value }}</li>
+            <li> - {{ ingredient.measure }} - {{ ingredient.value }}</li>
           }
         </ul>
-      <p class="whitespace-pre-line">{{ recipe.strInstructions }}</p>
+      </div>
+      <p class="whitespace-pre-line md:max-w-1/3 md:ml-10">{{ recipe.strInstructions }}</p>
+
     </div>
     <div class="flex gap-4 flex-col md:flex-row my-4">
       <a href="{{ recipe.strYoutube }}" target="_blank" class="action-btn">Watch Video</a>

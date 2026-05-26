@@ -1,13 +1,14 @@
 .details-container {
   padding: 2rem;
-
-  img {
-    border-radius: 8px;
-  }
 }
-.back-btn {
+
+.recipe-img {
   border-radius: 20px;
-  opacity: 0.8;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px rgb(239, 235, 225);
+}
+
+.back-btn {
   color: var(--primary-color);
   cursor: pointer;
   width: 2rem;
@@ -16,8 +17,6 @@
 
 .add-btn {
   background-color: #356022;
-  opacity: 0.8;
-  color: #f6eacc;
   cursor: pointer;
   width: 2rem;
   height: auto;
@@ -28,11 +27,12 @@
   }
 }
 .ingredients-list {
-  padding: 1rem;
+  padding: 3rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  background-color: #f6eacc;
-  opacity: 0.5
+  background-color: #dda15e;
+  box-shadow: 0 4px 6px rgb(239, 235, 225);
+  opacity: 0.7
 }
 
 .action-btn {
@@ -42,4 +42,5 @@
   opacity: 0.8;
   color: #f6eacc;
   text-align: center;
+  font-weight: bold;
 }
