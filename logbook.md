@@ -7,6 +7,7 @@
 ## Design
 - use of tailwindcss only for utility classes to produce responsive design faster
 - browse canva.com for inspiration and design ideas
+- app is designed mobile first
 
 ## Improvement
 - divide app.routes in subfolders for better organization
@@ -38,3 +39,5 @@
 ### 3 - Recipe Filters
 - add search bar component 
 - is signal a better way to implement user search input ? (to discuss)
+  (3 hours)
+- add category services and category filter component

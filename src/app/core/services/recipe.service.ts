@@ -1,8 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { debounceTime, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 // TODO: add custom paths for imports
 import { Ingredient, Meal, MealResponse } from '../models/meal.model';
+import { Category } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,18 @@ export class RecipeService {
       .pipe(map((res) => this.formatMealResponse(res)[0]));
   }
 
+  getAllCategories(): Observable<Category[]> {
+    return this.httpClient.get<{categories: Category[]}>('https://www.themealdb.com/api/json/v1/1/categories.php').pipe(
+      map((res) => res.categories)
+    )
+  }
+
+  getRecipesByCategory(category: string): Observable<Meal[]> {
+    return this.httpClient
+      .get<MealResponse>(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+      .pipe(map((res) => this.formatMealResponse(res)));
+  }
+
   private formatMealResponse(mealResponse: MealResponse): Meal[] {
     if (!mealResponse.meals || typeof mealResponse.meals === "string") { return [];}
     return mealResponse.meals.map((meal) => ({
@@ -32,7 +45,7 @@ export class RecipeService {
     })).slice(0,10);
   }
 
-  // TODO: real type for recipe
+  // TODO: change type for recipe
   private formatIngredients(recipe: any): Ingredient[] {
     const ingredientsList = Object.keys(recipe).filter((key) => key.startsWith('strIngredient'));
     return ingredientsList
