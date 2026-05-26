@@ -1,9 +1,14 @@
 <!-- TODO display in overlay dialog with animation -->
 @if (recipe$ | async; as recipe) {
+  <button class="back-btn" (click)="back()"><-</button>
+
   <div class="p-8 details-container">
-    <!-- TODO add back button   -->
     <h1 class="text-center md:text-left">{{ recipe.strMeal }}</h1>
-    <!-- TODO add favorite and to do icon buttons opposite to title   -->
+    <div class="flex gap-2">
+<!--      TODO-->
+      <button class="add-btn" [ngClass]="{'selected': isFavorite()} "  (click)="addToFavorites()">{{ isFavorite() ? 'Favorite' : 'Add to favorite }}</button>
+      <button class="add-btn" [ngClass]="{'selected': isToDo()}" (click)="addToDo()">{{ isToDo() ? 'To do' : 'Add To Do' }}</button>
+    </div>
     <div class="flex justify-center md:justify-start">
       <h2 class="details-chips">{{ recipe.strCategory }}</h2>
       <!-- TODO add icon for location -->

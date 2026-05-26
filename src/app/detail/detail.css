@@ -8,9 +8,22 @@
   }
 }
 
+.add-btn {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  background-color: #356022;
+  opacity: 0.8;
+  color: #f6eacc;
+  border: 1px solid var(--border-color);
+
+  &.selected {
+    background-color: #f6eacc;
+    color: #356022;
+  }
+}
 .details-ingredients-card {
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   background-color: #f9f9f9;
 }
