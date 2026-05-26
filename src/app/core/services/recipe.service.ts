@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { debounceTime, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 // TODO: add custom paths for imports
 import { Ingredient, Meal, MealResponse } from '../models/meal.model';
@@ -12,16 +12,9 @@ export class RecipeService {
 
   constructor() {}
 
-  // TODO remove duplicate method
-  getRecipes(): Observable<Meal[]> {
-    return this.httpClient
-      .get<MealResponse>('https://www.themealdb.com/api/json/v1/1/search.php?f=b')
-      .pipe(map((res) => this.formatMealResponse(res)));
-  }
-
   searchRecipes(input: string): Observable<Meal[]> {
     return this.httpClient
-      .get<MealResponse>(`https://www.themealdb.com/api/json/v1/1/search.php?f=${input}`)
+      .get<MealResponse>(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
       .pipe(map((res) => this.formatMealResponse(res)));
   }
 
@@ -32,10 +25,11 @@ export class RecipeService {
   }
 
   private formatMealResponse(mealResponse: MealResponse): Meal[] {
+    if (!mealResponse.meals || typeof mealResponse.meals === "string") { return [];}
     return mealResponse.meals.map((meal) => ({
       ...meal,
       ingredients: this.formatIngredients(meal),
-    }));
+    })).slice(0,10);
   }
 
   // TODO: real type for recipe

@@ -55,7 +55,7 @@ export interface MealResponse {
   strSource: string;
   strImageSource: string | null;
   strCreativeCommonsConfirmed: string | null;
-  dateModified: string;}[]
+  dateModified: string;}[] | string;
 }
 
 export interface Meal {
