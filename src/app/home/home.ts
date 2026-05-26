@@ -29,9 +29,14 @@ export class Home implements OnInit {
     this.recipes$ = this.recipeService.searchRecipes(searchTerm ?? '');
   }
 
-  protected searchByCategory(name: string) {
-    // reset search input on category filtering
-    this.searchComponent.inputSearch = '';
-    this.recipes$ = this.recipeService.getRecipesByCategory(name);
+  protected searchByCategory(categoryName: string | null ) {
+    if (categoryName) {
+      // reset search input on category filtering
+      this.searchComponent.inputSearch = '';
+      this.recipes$ = this.recipeService.getRecipesByCategory(categoryName);
+    } else {
+      this.search(null);
+    }
+
   }
 }

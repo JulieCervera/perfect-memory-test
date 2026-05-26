@@ -41,4 +41,6 @@
 - add search bar component 
 - is signal a better way to implement user search input ? (to discuss)
   (3 hours)
+- add svg icon from heroicons
 - add category services and category filter component
+- clear filter implementation 

@@ -11,7 +11,7 @@ import { Category } from '../../core/models/category.model';
   styleUrl: './categories.css',
 })
 export class Categories {
-  @Output() categoryEvent = new EventEmitter<string>();
+  @Output() categoryEvent = new EventEmitter<string | null>();
   recipeService = inject(RecipeService);
   categories: Category[] = [];
   selectedCategory: string | null = null;
@@ -24,7 +24,13 @@ export class Categories {
   }
 
   protected selectCategory(category: string) {
-    this.selectedCategory = category;
-    this.categoryEvent.emit(category);
+    if (this.selectedCategory === category) {
+      this.selectedCategory = null;
+      this.categoryEvent.emit(null);
+    } else {
+      this.selectedCategory = category;
+      this.categoryEvent.emit(category);
+    }
+
   }
 }
