@@ -1,0 +1,15 @@
+.search {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 1rem 3rem;
+  padding: 0.2rem;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
