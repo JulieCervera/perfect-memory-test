@@ -3,44 +3,46 @@
 }
 
 .recipe-img {
-  border-radius: 20px;
+  border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 6px rgb(239, 235, 225);
 }
 
 .back-btn {
-  color: var(--primary-color);
   cursor: pointer;
   width: 2rem;
   height: 2rem;
 }
 
+/*TODO change icon color*/
 .add-btn {
-  background-color: #356022;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
   cursor: pointer;
-  width: 2rem;
+  width: 3rem;
+  padding: 0.2rem;
   height: auto;
+  margin: 0.5rem;
 
   &.selected {
-    background-color: #f6eacc;
-    color: #356022;
+    background-color: var(--background-color);
   }
 }
 .ingredients-list {
   padding: 3rem 1rem;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   background-color: #dda15e;
   box-shadow: 0 4px 6px rgb(239, 235, 225);
   opacity: 0.7
 }
 
 .action-btn {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
-  background-color: #356022;
+  background-color: var(--primary-color);
   opacity: 0.8;
-  color: #f6eacc;
+  color: var(--background-color);
   text-align: center;
   font-weight: bold;
 }

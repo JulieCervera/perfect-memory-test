@@ -11,7 +11,7 @@
 
 
 body {
-  background-color: #f6eacc;
+  background-color: var(--background-color);
 }
 
 h1, h3, h4, h5, h6 {
@@ -25,10 +25,12 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: lighter;
   color: var(--secondary-color);
 }
 
 h3 {
   font-size: 1.25rem;
+  font-weight: normal;
+  font-style: italic;
 }
