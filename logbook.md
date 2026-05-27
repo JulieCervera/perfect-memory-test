@@ -11,7 +11,10 @@
 
 ## Improvement
 - divide app.routes in subfolders for better organization
-- add animation for smoother transition during list filter
+- add animation
+- Error management
+- Unit test
+- enhance design
 
 
 ## Steps
@@ -53,5 +56,12 @@
 - add favorite and to do logic
 
 ### 5 - Design
+- apply light design
 - style details page for mobile
 - style details page for desktop
+- style home for mobile
+- style home for desktop
+
+### 6 - Fix
+- fix init of details page with favorite and todo
+- fix conditional css class on details page

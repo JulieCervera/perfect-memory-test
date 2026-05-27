@@ -31,6 +31,7 @@ export class Detail implements OnInit {
   ngOnInit(): void {
     if (this.recipeId) {
       this.recipe$ = this.recipeService.getRecipeById(this.recipeId);
+      this.initializeFavoriteToDo();
     } else {
       this.error.set('Recipe not found');
     }
@@ -41,6 +42,12 @@ export class Detail implements OnInit {
 
   back(): void {
     this.location.back();
+  }
+
+  // Set favorite and to do from local storage
+  initializeFavoriteToDo() {
+    this.isFavorite.set(this.storageService.$favoritesRecipes.value.includes(this.recipeId!));
+    this.isToDo.set(this.storageService.$toDoRecipes.value.includes(this.recipeId!));
   }
 
   addToFavorites() {
