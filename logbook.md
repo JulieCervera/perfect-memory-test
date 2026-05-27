@@ -14,7 +14,8 @@
 - add animation
 - Error management
 - Unit test
-- enhance design
+- Enhance design
+- add CI/CD
 
 
 ## Steps
@@ -65,3 +66,8 @@
 ### 6 - Fix
 - fix init of details page with favorite and todo
 - fix conditional css class on details page
+
+
+### 7 - docs and version
+- add to github repo
+- write readMe
