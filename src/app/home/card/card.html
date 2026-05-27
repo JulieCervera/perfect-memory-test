@@ -1,8 +1,14 @@
-<div class="recipe-card flex flex-col">
-  <img src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}">
+<div class="card flex flex-col">
+  <h3>{{ recipe.strMeal }}</h3>
+
+  <img src="{{ recipe.strMealThumb }}" alt="{{ recipe.strMeal }}" />
   <div class="p-4">
-    <h3>{{ recipe.strMeal }}</h3>
-    <p>{{ recipe.strCategory }}</p>
-    <small>{{ recipe.ingredients.length }} ingredients</small>
+
+    <h4 class="italic">{{ recipe.strCategory }}</h4>
+    <!-- if no ingredients indication, don't display   -->
+    @if (recipe.ingredients.length > 0) {
+      <small>{{ recipe.ingredients.length }} ingredients</small>
+    }
   </div>
-  <a [routerLink]="['/recipe', recipe.idMeal]" class="btn">View Recipe</a></div>
+  <a class="card-btn md:self-end" [routerLink]="['/recipe', recipe.idMeal]">View Recipe</a>
+</div>

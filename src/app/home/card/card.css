@@ -1,12 +1,24 @@
-.recipe-card {
+.card {
   padding: 1rem;
   max-width: 20rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: #ffffff63;
+  box-shadow: 0 4px 6px rgb(239, 235, 225);
 }
 
-.recipe-card img {
+.card img {
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+.card-btn {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  opacity: 0.8;
+  color: #f6eacc;
+  text-align: center;
+  font-weight: bold;
 }
